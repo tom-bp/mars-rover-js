@@ -1,21 +1,17 @@
 import NotFoundError from "../errors/NotFoundError.js";
+import * as QuotationsRepository from "../repositories/QuotationsRepository";
 
-export function getQuotation(quotationId) {
-    const quotations = [
-        {
-            id: 0,
-            quotation:
-                "The International Space Station stands as proof that when we set our minds to something hard, when we work together, we can do anything, including solving our problems here on Earth.",
-            attribution: "Scott Kelly",
-        },
-        {
-            id: 1,
-            quotation: "I submit that Mars is the 21st-century destination for humans. There are plenty of reasons why going to Mars makes sense.",
-            attribution: "Terry Virts",
-        },
-    ];
-    if (quotationId > quotations.length) {
-        throw new NotFoundError("Quotation not found");
+export async function get(id) {
+    const quotation = await QuotationsRepository.get(id);
+    if (quotation) {
+        return quotation;
     }
-    return quotations[quotationId];
+    throw new NotFoundError("Quotation not found");
+}
+
+export async function getQuotationOfTheDay() {
+    const quotations = await QuotationsRepository.getAll();
+    const today = Math.floor(new Date().valueOf() / (1000 * 60 * 60 * 24));
+    const todaysId = today % quotations.length;
+    return quotations[todaysId];
 }

@@ -4,10 +4,10 @@ import Home from "./home/Home";
 import "./cssreset.css";
 import "./App.css";
 
-const App = () => (
-    <Switch>
-        <Route exact path="/" component={Home} />
-    </Switch>
-);
-
-export default App;
+export default function App() {
+    return (
+        <Switch>
+            <Route exact path="/" component={Home} />
+        </Switch>
+    );
+}

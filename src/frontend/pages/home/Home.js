@@ -10,17 +10,17 @@ export default function Home() {
         <>
             <title>Mars Rover App</title>
             <main className="home-page">
-                <h1>Quotation of the day</h1>
-                <p className="quotation">{quotation?.quotation}</p>
+                <h1>Mars Rover</h1>
+                <h2>Quotation of the day</h2>
+                <p className="quotation">{quotation?.text}</p>
                 <p className="attribution">—{quotation?.attribution}</p>
             </main>
         </>
     );
 
     async function getQuotationOfTheDay() {
-        const quotationId = new Date().getDay() % 3;
         try {
-            const response = await QuotationsApi.getQuotation(quotationId);
+            const response = await QuotationsApi.getQuotationOfTheDay();
             setQuotation(response);
         } catch (e) {
             console.error(e);
