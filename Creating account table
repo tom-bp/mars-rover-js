@@ -3,3 +3,7 @@ CREATE TABLE Account(
     name VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL
 );
+
+INSERT INTO Account (username, password)
+VALUES
+	('kenny', 'abadpassword');
