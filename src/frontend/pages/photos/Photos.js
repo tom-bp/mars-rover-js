@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Photos.css";
 
 export default function Photos() {
@@ -9,7 +9,6 @@ export default function Photos() {
             <main className="photos-page">
                 <h1>Mars Rover Photos</h1>
                 <h2>This page is currenlty under construction, come back soon!</h2>
-
             </main>
         </>
     );
