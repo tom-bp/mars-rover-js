@@ -13,13 +13,11 @@ export default function Home() {
         <>
             <title>Mars Rover App</title>
             <main className="home-page">
-                <body>
                     <NavBar />
                     <h1>Mars Rover</h1>
                     <h2>Quotation of the day</h2>
                     <p className="quotation">{quotation?.text}</p>
                     <p className="attribution">—{quotation?.attribution}</p>
-                </body>
             </main>
         </>
     );

@@ -9,11 +9,9 @@ export default function Photos() {
         <>
             <title>Mars Rover App</title>
             <main className="photos-page">
-                <body>
                     <NavBar />
                     <h1>Mars Rover Photos</h1>
                     <h2>This page is currently under construction, come back soon!</h2>
-                </body>
             </main>
         </>
     );
