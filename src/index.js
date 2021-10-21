@@ -1,6 +1,6 @@
 import express from "express";
 
-// let app = require("./server").default;
+let app = require("./server").default;
 
 if (module.hot) {
     module.hot.accept("./server", function () {
