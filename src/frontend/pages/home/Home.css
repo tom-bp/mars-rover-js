@@ -32,3 +32,24 @@
 .home-page .attribution {
     font-style: italic;
 }
+.curiosityImg{
+  position: inherit;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.oppotunityImg{
+  position: inherit;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+.spiritImg{
+  position: inherit;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.Rovers{
+  padding-top: 50px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
