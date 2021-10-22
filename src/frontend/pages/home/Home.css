@@ -33,23 +33,57 @@
     font-style: italic;
 }
 .curiosityImg{
-  position: inherit;
   padding-right: 20px;
   padding-bottom: 20px;
+  flex-flow: row wrap;
+  align-items: flex-end;
 }
 .oppotunityImg{
-  position: inherit;
   padding-bottom: 10px;
   padding-right: 10px;
 }
 .spiritImg{
-  position: inherit;
   padding-right: 20px;
   padding-bottom: 20px;
 }
-.Rovers{
-  padding-top: 50px;
-  padding-bottom: 30px;
-  padding-left: 20px;
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #b3b3b3;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: relative;
+  margin: 10px;
+  text-align: center;
+  line-height:20px;
+  font-size: 20px;
+  flex-wrap: wrap;
+}
+.flex-container > img {
   padding-right: 20px;
+  padding-bottom: 20px;
+  text-align: right;
+}
+.container {
+  display: flex;
+  background-color: #b3b3b3;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.container > .image {
+  flex: 1 0 0%;
+  text-align:right;/* and here*/
+}
+.image > img {
+  vertical-align:top;/* here */
+  max-width: 100%;
+  max-height: 300px;
+}
+.container > .text {
+  flex: 2 0 0%;
+  /* and eventually */
+  
+  margin:auto 0;
 }
