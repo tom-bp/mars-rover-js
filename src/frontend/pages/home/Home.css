@@ -22,3 +22,6 @@
 .home-page .attribution {
     font-style: italic;
 }
+main {
+    margin: 0;
+}
