@@ -13,6 +13,4 @@ app.use("/api", apiRoutes);
 app.use(express.static(process.env.RAZZLE_PUBLIC_DIR));
 app.use("/", renderingRoutes);
 
-
 export default app;
-

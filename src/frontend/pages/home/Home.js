@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as QuotationsApi from "../../api/QuotationsApi";
 import "./Home.css";
+import LoginFrontend from './LoginFrontend'
 
 export default function Home() {
     const [quotation, setQuotation] = useState();
@@ -11,7 +12,7 @@ export default function Home() {
             <title>Mars Rover App</title>
             <main className="home-page">
                 <h1>Mars Rover</h1>
-                <h2>Quotation of the day</h2>
+                <h2>Quotation of the day </h2>
                 <p className="quotation">{quotation?.text}</p>
                 <p className="attribution">—{quotation?.attribution}</p>
             </main>
@@ -25,5 +26,7 @@ export default function Home() {
         } catch (e) {
             console.error(e);
         }
+
     }
+
 }

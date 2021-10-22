@@ -5,13 +5,11 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
     try {
-        const username = req.query.username
-        const password = req.query.password
-        console.log(username, password)
-        AccountsService.getTokenForUser(username, password).then((token)=>{
-            res.send({ message: `hello, ${username}`, token : token });
-        })
-
+        const username = req.query.username;
+        const password = req.query.password;
+        AccountsService.getTokenForUser(username, password).then((token) => {
+            res.send({ message: `hello, ${username}`, token: token });
+        });
     } catch (err) {
         if (err.name === NotFoundErrorName) {
             res.sendStatus(404);
