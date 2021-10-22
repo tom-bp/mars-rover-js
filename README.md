@@ -2,7 +2,7 @@
 
 * Set up your Postgres database by running, in order, each of the SQL scripts in `src/backend/sqlScripts`.
 * Remember to install the dependencies by running `npm install` in your terminal.
-* - Make a local copy of `src/_template_config.js` and name the copy `config.js`. Update each of the configuration options in the copy with your versions (e.g. update the connection string with your connection string).
+* - Make a local copy of `src/backend/_template_config.js` and name the copy `config.js`. Update each of the configuration options in the copy with your versions (e.g. update the connection string with your connection string).
 
 # Run your code
 
