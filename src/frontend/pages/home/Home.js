@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import * as QuotationsApi from "../../api/QuotationsApi";
 import "./Home.css";
-<<<<<<< rover-descriptions
 const curiosity = "/curiosity.jpg";
 const opportunity = "/opportunity.jpg";
 const spirit = "/spirit.jpg";
-=======
+
 import NavBar from "../../components/NavBar";
->>>>>>> main
 
 export default function Home() {
     const [quotation, setQuotation] = useState();
@@ -16,8 +14,8 @@ export default function Home() {
         <>
             <title>Mars Rover App</title>
             <main className="home-page">
-<<<<<<< rover-descriptions
                 <body>
+                    <NavBar />
                     <h1>Mars Rover</h1>
                     <h2>Quotation of the day</h2>
                     <p className="quotation">{quotation?.text}</p>
@@ -88,13 +86,6 @@ export default function Home() {
                         </div>
                     </div>
                 </body>
-=======
-                <NavBar />
-                <h1>Mars Rover</h1>
-                <h2>Quotation of the day</h2>
-                <p className="quotation">{quotation?.text}</p>
-                <p className="attribution">—{quotation?.attribution}</p>
->>>>>>> main
             </main>
         </>
     );
