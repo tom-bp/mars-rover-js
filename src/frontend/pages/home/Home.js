@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as QuotationsApi from "../../api/QuotationsApi";
 import "./Home.css";
-import LoginFrontend from './LoginFrontend'
 
 export default function Home() {
     const [quotation, setQuotation] = useState();
