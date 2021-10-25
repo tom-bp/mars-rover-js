@@ -20,10 +20,7 @@
   margin-top: 0.3rem;
   margin-bottom: 1rem;
 }
-.home-page p1 {
-  text-align: left;
-  margin-bottom: 0.5rem;
-}
+
 .home-page p {
     text-align: center;
     margin-bottom: 0.5rem;
@@ -32,27 +29,27 @@
 .home-page .attribution {
     font-style: italic;
 }
-.curiosityImg{
+.home-page .curiosityImg{
   padding-right: 20px;
   padding-bottom: 20px;
   flex-flow: row wrap;
   align-items: flex-end;
 }
-.oppotunityImg{
+.home-page .oppotunityImg{
   padding-bottom: 10px;
   padding-right: 10px;
 }
-.spiritImg{
+.home-page .spiritImg{
   padding-right: 20px;
   padding-bottom: 20px;
 }
-.flex-container {
+.home-page .flex-container {
   display: flex;
   flex-direction: column;
   background-color: #b3b3b3;
 }
 
-.flex-container > div {
+.home-page .flex-container > div {
   display: flex;
   background-color: #f1f1f1;
   width: relative;
@@ -60,10 +57,16 @@
   line-height:20px;
   font-size: 20px;
 }
-.image {
+
+.home-page .flex-container p{
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.home-page .image {
   padding: 20px;
   flex-shrink: 0;
 }
-.image > img {
+.home-page .image > img {
   width: 400px;
 }
