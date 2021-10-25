@@ -9,7 +9,6 @@ router.use("/cameras", CameraController);
 
 
 router.use((req, res) => {
-    console.log(req.path);
     res.sendStatus(404);
 });
 
