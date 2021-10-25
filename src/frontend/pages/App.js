@@ -13,3 +13,15 @@ export default function App() {
     </Switch>
   );
 }
+
+export default function loginInteraction(){
+    return(
+        <>
+            Username:
+            <input type = "text"/>
+            Password:
+            <input type = "text"/>
+            <button>Submit</button>
+        </>
+    )
+}
