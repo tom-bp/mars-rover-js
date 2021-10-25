@@ -13,6 +13,13 @@
     margin-top: 0.3rem;
     margin-bottom: 1rem;
 }
+.home-page h3 {
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
 
 .home-page p {
     text-align: center;
@@ -22,6 +29,44 @@
 .home-page .attribution {
     font-style: italic;
 }
-main {
-    margin: 0;
+.home-page .curiosityImg{
+  padding-right: 20px;
+  padding-bottom: 20px;
+  flex-flow: row wrap;
+  align-items: flex-end;
+}
+.home-page .oppotunityImg{
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+.home-page .spiritImg{
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.home-page .flex-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #b3b3b3;
+}
+
+.home-page .flex-container > div {
+  display: flex;
+  background-color: #f1f1f1;
+  width: relative;
+  margin: 10px;
+  line-height:20px;
+  font-size: 20px;
+}
+
+.home-page .flex-container p{
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.home-page .image {
+  padding: 20px;
+  flex-shrink: 0;
+}
+.home-page .image > img {
+  width: 400px;
 }
