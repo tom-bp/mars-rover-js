@@ -3,6 +3,9 @@ import { urlencoded, json } from "body-parser";
 import apiRoutes from "./backend/apiRoutes.js";
 import renderingRoutes from "./backend/renderingRoutes.js";
 
+const passport = import("passport");
+const passportJwt = import("passport-jwt");
+
 const app = express();
 app.disable("x-powered-by");
 app.use(urlencoded({ extended: false }));
@@ -12,3 +15,29 @@ app.use(express.static(process.env.RAZZLE_PUBLIC_DIR));
 app.use("/", renderingRoutes);
 
 export default app;
+
+
+const options = {
+    jwtFromRequest: passportJwt.ExtractJwt.fromHeader("x-access-token"),
+    secretOrKey: "secret",
+  };
+  
+  passport.use(
+    new passportJwt.Strategy(options, function (decodedJwt, next) {
+      const username = decodedJwt.username;
+      db.any("SELECT * FROM accounts ")
+        .then(function (data) {
+          const account = data.find((account) => account.name === username);
+          if (account !== undefined) {
+            next(null, account);
+          } else {
+            return next(null, false);
+          }
+        })
+        .catch(function (error) {
+          next(error, false);
+          console.error(error);
+        });
+    })
+  );
+app.use(passport.initialize());
