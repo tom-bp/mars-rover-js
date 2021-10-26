@@ -9,7 +9,6 @@ router.use("/pictures", ImageController);
 
 
 router.use((req, res) => {
-    console.log(req.path);
     res.sendStatus(404);
 });
 
