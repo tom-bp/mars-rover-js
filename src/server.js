@@ -4,6 +4,7 @@ import apiRoutes from "./backend/apiRoutes.js";
 import renderingRoutes from "./backend/renderingRoutes.js";
 import passport from "passport";
 import passportJwt from "passport-jwt";
+import { getAccounts } from "./backend/repositories/AccountsRepository.js";
 
 const options = {
     jwtFromRequest: passportJwt.ExtractJwt.fromHeader("x-access-token"),
@@ -12,7 +13,7 @@ const options = {
 passport.use(
     new passportJwt.Strategy(options, function (decodedJwt, next) {
         const username = decodedJwt.username;
-        db.any("SELECT * FROM accounts ")
+        getAccounts()
             .then(function (data) {
                 const account = data.find((account) => account.name === username);
                 if (account !== undefined) {
