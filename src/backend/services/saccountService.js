@@ -8,7 +8,7 @@ export function getTokenForUser(name, password) {
         if (canLogin) {
             return createTokenForUser(name);
         }
-        return undefined
+        throw new NotFoundError()
     });
 }
 function createTokenForUser(name) {
