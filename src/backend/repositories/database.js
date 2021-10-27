@@ -1,5 +1,5 @@
 import pgp from "pg-promise";
-import { connectionString } from "../config";
+import {connectionString} from "../config.js";
 
 const database = pgp()(connectionString);
 
