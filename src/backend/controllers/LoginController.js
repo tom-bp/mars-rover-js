@@ -1,6 +1,6 @@
 import express from "express";
 import { NotFoundErrorName } from "../errors/NotFoundError.js";
-import * as AccountsService from "../services/AccountService.js";
+import * as AccountsService from "../services/AccountsService.js";
 
 const router = express.Router();
 
