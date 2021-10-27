@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NavBar from "../../components/NavBar";
 import "./PerseveranceLocation.css"
 
-export function perseveranceLocationPage() {
+export default function perseveranceLocationPage() {
     return (
         <>
             <title>Mars Rover App</title>
