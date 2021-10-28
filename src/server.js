@@ -13,7 +13,7 @@ const options = {
 passport.use(
     new passportJwt.Strategy(options, function (decodedJwt, next) {
         const username = decodedJwt.username;
-        getAccounts()
+        getAccount(username)
             .then(function (data) {
                 const account = data.find((account) => account.name === username);
                 if (account !== undefined) {
