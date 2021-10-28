@@ -11,6 +11,10 @@ const nameofRover = "";
 export default function Photos() {
     const [Gallery, setGallery] = useState();
     const [roverName, setRoverName] = useState("SELECT A ROVER TO SEE IMAGES");
+    const [camera, setCamera] = useState();
+    const [solNumber, setSolNumber] = useState();
+    const [ImgUrls, setImgUrls] = useState();
+
     if (roverName === "SELECT A ROVER TO SEE IMAGES") {
         return (
             <>
@@ -89,11 +93,34 @@ export default function Photos() {
                         soon!
                     </h2>
                     {Gallery?.map((camera) => {
-                        return <p key={camera.name}>{camera.fullName}</p>;
+                        return (
+                            <button
+                                key={camera.name}
+                                onClick={() => {
+                                    setCamera(camera.Name);
+                                    console.log(camera);
+                                }}
+                            >
+                                {camera.fullName}
+                            </button>
+                        );
                     })}
-                    
-                    <div className="desc"> {roverName}</div>
 
+                    <div className="desc"> {roverName}</div>
+                    <h2>
+                        {" "}
+                        Enter SOL date
+                        <input type="number" id="solInput" />
+                        <button onClick={() =>{solFunction()}}>Submit</button>
+                    </h2>
+
+                    <div>
+                    {ImgUrls?.map((Urls) => {
+                        return (
+                            setImgUrls(roverName,camera,solNumber)
+                    )})}
+
+                    </div>
                 </main>
             </>
         );
@@ -105,12 +132,25 @@ export default function Photos() {
             setGallery(cameraList);
         });
     }
-}
 
-async function getCameraList(roverName) {
-    try {
-        return await CamerasApi.getCameraList(roverName);
-    } catch (e) {
-        console.error(e);
+    function solFunction() {
+        setSolNumber(document.getElementById("solInput").value);
+        console.log(document.getElementById("solInput").value);
+    }
+
+    async function getCameraList(roverName) {
+        try {
+            return await CamerasApi.getCameraList(roverName);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    async function setImgUrls(roverName, cameraName, solDate) {
+        try {
+            return await PicturesApi.getPhotos(roverName, cameraName, solDate);
+        } catch (e) {
+            console.error(e);
+        }
     }
 }
