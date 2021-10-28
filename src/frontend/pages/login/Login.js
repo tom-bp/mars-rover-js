@@ -5,6 +5,7 @@ export default function LoginInteraction() {
     return (
         <>
             <title>Mars rover app</title>
+            <div className= "login-background-image"></div>
             <main className="login-page">
                 <h1>Login</h1>
                 <h2>

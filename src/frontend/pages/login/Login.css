@@ -27,7 +27,17 @@
     word-spacing: 10px;
 }
 
-body {
-    background: rgb(194, 194, 194);
-    background-image: url("Rocket.gif")
+.login-background-image{
+    background-image: url("Rocket.gif");
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
 }
+
+main.login-page{
+    position:relative;
+}
+
+
