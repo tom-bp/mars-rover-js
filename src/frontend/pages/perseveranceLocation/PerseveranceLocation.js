@@ -7,8 +7,12 @@ export default function perseveranceLocationPage() {
         <>
             <title>Mars Rover App</title>
             <main className="perseverance-rover-page">
+            <NavBar />
                 <body>
-                    <NavBar />
+                <h1>Perseverance Location</h1>
+                <h1>
+                <iframe src='https://mars.nasa.gov/maps/location/?mission=M20&site=NOW' width='1800' height='1000' scrolling='no' frameborder='0' allowfullscreen></iframe>
+                </h1>
                 </body>
             </main>
         </>
