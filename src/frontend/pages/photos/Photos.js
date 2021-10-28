@@ -21,7 +21,7 @@ export default function Photos() {
                         This page is currently under construction, come back
                         soon!
                     </h2>
-                    <div class="flex-container">
+                    <div className="flex-container">
                         <div className="gallery" href="/">
                             <a className="images">
                                 <img
@@ -79,16 +79,31 @@ export default function Photos() {
             </>
         );
     } else {
-        getCameraList(roverName);
+        return (
+            <>
+                <title>Mars Rover App</title>
+                <main className="photos-page">
+                    <h1>Mars Rover Photos</h1>
+                    <h2>
+                        This page is currently under construction, come back
+                        soon!
+                    </h2>
+                    {Gallery?.map((camera) => {
+                        return <p key={camera.name}>{camera.fullName}</p>;
+                    })}
+                    
+                    <div className="desc"> {roverName}</div>
+
+                </main>
+            </>
+        );
     }
     function selectRover(selectedRoverName) {
         setRoverName(selectedRoverName);
-        getCameraList(selectedRoverName)
-        .then(
-            function response(cameraList) {
-                console.log(cameraList)
-            }
-        )
+        getCameraList(selectedRoverName).then(function response(cameraList) {
+            console.log(cameraList);
+            setGallery(cameraList);
+        });
     }
 }
 
