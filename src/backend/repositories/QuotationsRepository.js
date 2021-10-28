@@ -1,7 +1,7 @@
 import database from "./database";
 
 export async function get(id) {
-    const result = database.any("SELECT * FROM quotations WHERE id = $1", [id]);
+    const result = await database.any("SELECT * FROM quotations WHERE id = $1", [id]);
     if (result.length > 0) {
         return result[0];
     }

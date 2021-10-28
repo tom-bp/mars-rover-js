@@ -5,7 +5,10 @@ html {
 }
 
 body {
+    width:auto;
     position: relative;
-    color: black;
+    color:rgb(24, 22, 22);
     font-weight: 200;
+    background-color:rgb(255, 254, 239);
+    margin: 0;
 }
