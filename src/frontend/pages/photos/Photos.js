@@ -6,9 +6,7 @@ const opportunityImage = "/opportunity2.jpg";
 const spiritImage = "/spirit.png";
 import * as CamerasApi from "../../api/CamerasApi";
 import * as PicturesApi from "../../api/PicturesApi";
-import { response } from "express";
 
-const nameofRover = "";
 
 export default function Photos() {
     const [Gallery, setGallery] = useState();
@@ -100,7 +98,6 @@ export default function Photos() {
                                 key={camera.name}
                                 onClick={() => {
                                     setCamera(camera.name);
-                                    console.log(camera);
                                 }}
                             >
                                 {camera.fullName}
@@ -134,14 +131,12 @@ export default function Photos() {
     function selectRover(selectedRoverName) {
         setRoverName(selectedRoverName);
         getCameraList(selectedRoverName).then(function response(cameraList) {
-            console.log(cameraList);
             setGallery(cameraList);
         });
     }
 
     function solFunction() {
         setSolNumber(document.getElementById("solInput").value);
-        console.log(document.getElementById("solInput").value);
         settingImgUrls(
             roverName,
             camera,
