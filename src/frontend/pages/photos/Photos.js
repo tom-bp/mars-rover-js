@@ -6,6 +6,7 @@ const opportunityImage = "/opportunity2.png";
 const spiritImage = "/spirit.png";
 import * as CamerasApi from "../../api/CamerasApi";
 import * as PicturesApi from "../../api/PicturesApi";
+import NavBar from "../../components/NavBar";
 
 export default function Photos() {
     const [Gallery, setGallery] = useState();
@@ -19,6 +20,7 @@ export default function Photos() {
             <>
                 <title>Mars Rover App</title>
                 <main className="photos-page">
+                    <NavBar />
                     <h1>Mars Rover Photos</h1>
                     <h2>Meet the Rovers in order of age</h2>
                     <div className="flex-container">
@@ -81,47 +83,50 @@ export default function Photos() {
             <>
                 <title>Mars Rover App</title>
                 <main className="photos-page">
+                    <NavBar />
                     <h1>Mars Rover Photos</h1>
                     <h2>
-                        Please select a camera and enter your sol date to see photographs from Mars!
+                        Please select a camera and enter your sol date to see
+                        photographs from Mars!
                     </h2>
                     <div className="flex-container">
-                    {Gallery?.map((camera) => {
-                        return (
-                            <button
-                                key={camera.name}
-                                onClick={() => {
-                                    setCamera(camera.name);
-                                }}
-                                
-                            >
-                                {camera.fullName}
-                            </button>
-                        );
-                    })}
-                    </div>
-
-                    <div className="desc"> {roverName}</div>
-                    <div className="flex-container">
-                    <h2>
-                        {" "}
-                        Enter SOL date
-                        <input type="number" id="solInput" />
-                        <button
-                            onClick={() => {
-                                solFunction();
-                            }}
-                        >
-                            Submit
-                        </button>
-                    </h2>
-                        </div>
-                        <div className="flex-container">
-                    <div className="URLS">
-                        {ImgUrls?.map((Url, index) => {
-                            return <img key={index} src={Url} />;
+                        {Gallery?.map((camera) => {
+                            return (
+                                <button
+                                    key={camera.name}
+                                    onClick={() => {
+                                        setCamera(camera.name);
+                                    }}
+                                >
+                                    {camera.fullName}
+                                </button>
+                            );
                         })}
                     </div>
+                    <h1>
+                        <div className="desc"> {roverName}</div>{" "}
+                    </h1>
+                    <div className="flex-container">
+                        <h2>
+                            {" "}
+                            Enter SOL date
+                            <input type="number" id="solInput" />
+                            <button
+                                id="button"
+                                onClick={() => {
+                                    solFunction();
+                                }}
+                            >
+                                Submit
+                            </button>
+                        </h2>
+                    </div>
+                    <div className="flex-container">
+                        <div className="URLS">
+                            {ImgUrls?.map((Url, index) => {
+                                return <img key={index} src={Url} />;
+                            })}
+                        </div>
                     </div>
                 </main>
             </>
