@@ -5,6 +5,8 @@ const PerseveranceImage = "/perseverance.png";
 const opportunityImage = "/opportunity2.jpg";
 const spiritImage = "/spirit.png";
 import * as CamerasApi from "../../api/CamerasApi";
+import * as PicturesApi from "../../api/PicturesApi";
+import { response } from "express";
 
 const nameofRover = "";
 
@@ -97,7 +99,7 @@ export default function Photos() {
                             <button
                                 key={camera.name}
                                 onClick={() => {
-                                    setCamera(camera.Name);
+                                    setCamera(camera.name);
                                     console.log(camera);
                                 }}
                             >
@@ -111,15 +113,20 @@ export default function Photos() {
                         {" "}
                         Enter SOL date
                         <input type="number" id="solInput" />
-                        <button onClick={() =>{solFunction()}}>Submit</button>
+                        <button
+                            onClick={() => {
+                                solFunction();
+                            }}
+                        >
+                            Submit
+                        </button>
                     </h2>
 
-                    <div>
-                    {ImgUrls?.map((Urls) => {
-                        return (
-                            setImgUrls(roverName,camera,solNumber)
-                    )})}
-
+                    <div className="URLS">
+                        {ImgUrls?.map((Url,index) => {
+                            
+                            return <img key={index} src={Url}/>;
+                        })}
                     </div>
                 </main>
             </>
@@ -136,6 +143,7 @@ export default function Photos() {
     function solFunction() {
         setSolNumber(document.getElementById("solInput").value);
         console.log(document.getElementById("solInput").value);
+        settingImgUrls(roverName, camera, document.getElementById("solInput").value)
     }
 
     async function getCameraList(roverName) {
@@ -146,9 +154,13 @@ export default function Photos() {
         }
     }
 
-    async function setImgUrls(roverName, cameraName, solDate) {
+    async function settingImgUrls(roverName, cameraName, solDate) {
         try {
-            return await PicturesApi.getPhotos(roverName, cameraName, solDate);
+            setImgUrls(await PicturesApi.getPictures(
+                roverName,
+                cameraName,
+                solDate)
+            );
         } catch (e) {
             console.error(e);
         }
