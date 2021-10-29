@@ -1,0 +1,43 @@
+.login-page h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 3000;
+    margin-top: 7rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 5px;
+    color: white;
+}
+
+.login-page h2 {
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    color: white;
+}
+
+.login-page buttontype{
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    word-spacing: 10px;
+}
+
+.login-background-image{
+    background-image: url("Rocket.gif");
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+}
+
+main.login-page{
+    position:relative;
+}
+
+

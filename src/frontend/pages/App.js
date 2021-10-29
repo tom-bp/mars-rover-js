@@ -5,6 +5,7 @@ import Photos from "./photos/Photos";
 import "./cssreset.css";
 import "./App.css";
 import perseveranceLocationPage from "./perseveranceLocation/PerseveranceLocation";
+import Login from "./login/Login";
 
 export default function App() {
   return (
@@ -12,6 +13,8 @@ export default function App() {
       <Route exact path="/" component={Home} />
       <Route exact path="/photos" component={Photos} />
       <Route exact path="/perseverance" component={perseveranceLocationPage} />
+      <Route exact path="/login" component={Login} />
     </Switch>
   );
+
 }
