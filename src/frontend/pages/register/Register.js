@@ -1,23 +1,48 @@
+import { response } from "express";
 import React from "react";
 import NavBar from "../../components/NavBar";
 import "./Register.css";
-const curiosity = "/curiosity.jpg";
-const opportunity = "/opportunity.jpg";
-const spirit = "/spirit.jpg";
-// Get the modal
 
-export default function Register() {
+export default function Register(properties) {
+    
+    const handleRegistration = (details) => {
+        const regDetails = {
+            name: details.name,
+            username: details.username,
+            password: details.password,
+        };
+        fetch ("/api/registration", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(regDetails),
+        })
+        .then((response)=>{
+            console.log(response.status)
+            if (response.status === 201){
+                window.alert("Registration Successfull \n", response.status)
+            }
+        })
+    };
+
     return (
         <>
             <title>Mars Rover App</title>
             <main className="register-page">
                 <NavBar />
                 <h1>Mars Rover Registration Page</h1>
-
+ 
                 <div className ="flex-container">
+                    <div>
+                        <RegisterForm 
+                        registration={handleRegistration}
+                        />
+                    <div/>
 
-                    <form action="/action_page.php">
+                    <form onSubmit = {handleSubmit}>
                         <div className="container">
+                            
                             <h1>Sign Up</h1>
                             <p>Please fill in this form to create an account.</p>
                             <hr />
@@ -57,6 +82,7 @@ export default function Register() {
                                 </p>
                             </div>
                         </div>
+                       
                     </form>
                 </div>
             </main>
