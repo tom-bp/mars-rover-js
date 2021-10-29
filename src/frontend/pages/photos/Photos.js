@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Photos.css";
-const curiosityImage = "/curiosity2.jpg";
+const curiosityImage = "/curiosity2.png";
 const PerseveranceImage = "/perseverance.png";
-const opportunityImage = "/opportunity2.jpg";
+const opportunityImage = "/opportunity2.png";
 const spiritImage = "/spirit.png";
 import * as CamerasApi from "../../api/CamerasApi";
 import * as PicturesApi from "../../api/PicturesApi";
-
 
 export default function Photos() {
     const [Gallery, setGallery] = useState();
@@ -21,24 +20,8 @@ export default function Photos() {
                 <title>Mars Rover App</title>
                 <main className="photos-page">
                     <h1>Mars Rover Photos</h1>
-                    <h2>
-                        This page is currently under construction, come back
-                        soon!
-                    </h2>
+                    <h2>Meet the Rovers in order of age</h2>
                     <div className="flex-container">
-                        <div className="gallery" href="/">
-                            <a className="images">
-                                <img
-                                    src={curiosityImage}
-                                    alt="Curiosity Rover"
-                                    width="300"
-                                    height="300"
-                                    onClick={() => selectRover("curiosity")}
-                                />
-                            </a>
-                            <div className="desc">Curiosity</div>
-                        </div>
-
                         <div className="gallery" href="/">
                             <a className="images">
                                 <img
@@ -64,7 +47,18 @@ export default function Photos() {
                             </a>
                             <div className="desc">Opportunity</div>
                         </div>
-
+                        <div className="gallery" href="/">
+                            <a className="images">
+                                <img
+                                    src={curiosityImage}
+                                    alt="Curiosity Rover"
+                                    width="300"
+                                    height="300"
+                                    onClick={() => selectRover("curiosity")}
+                                />
+                            </a>
+                            <div className="desc">Curiosity</div>
+                        </div>
                         <div className="gallery" href="/">
                             <a className="images">
                                 <img
@@ -89,9 +83,9 @@ export default function Photos() {
                 <main className="photos-page">
                     <h1>Mars Rover Photos</h1>
                     <h2>
-                        This page is currently under construction, come back
-                        soon!
+                        Please select a camera and enter your sol date to see photographs from Mars!
                     </h2>
+                    <div className="flex-container">
                     {Gallery?.map((camera) => {
                         return (
                             <button
@@ -99,13 +93,16 @@ export default function Photos() {
                                 onClick={() => {
                                     setCamera(camera.name);
                                 }}
+                                
                             >
                                 {camera.fullName}
                             </button>
                         );
                     })}
+                    </div>
 
                     <div className="desc"> {roverName}</div>
+                    <div className="flex-container">
                     <h2>
                         {" "}
                         Enter SOL date
@@ -118,11 +115,13 @@ export default function Photos() {
                             Submit
                         </button>
                     </h2>
-
+                        </div>
+                        <div className="flex-container">
                     <div className="URLS">
                         {ImgUrls?.map((Url, index) => {
                             return <img key={index} src={Url} />;
                         })}
+                    </div>
                     </div>
                 </main>
             </>
