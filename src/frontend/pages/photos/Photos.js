@@ -123,9 +123,8 @@ export default function Photos() {
                     </h2>
 
                     <div className="URLS">
-                        {ImgUrls?.map((Url,index) => {
-                            
-                            return <img key={index} src={Url}/>;
+                        {ImgUrls?.map((Url, index) => {
+                            return <img key={index} src={Url} />;
                         })}
                     </div>
                 </main>
@@ -143,7 +142,11 @@ export default function Photos() {
     function solFunction() {
         setSolNumber(document.getElementById("solInput").value);
         console.log(document.getElementById("solInput").value);
-        settingImgUrls(roverName, camera, document.getElementById("solInput").value)
+        settingImgUrls(
+            roverName,
+            camera,
+            document.getElementById("solInput").value
+        );
     }
 
     async function getCameraList(roverName) {
@@ -156,10 +159,8 @@ export default function Photos() {
 
     async function settingImgUrls(roverName, cameraName, solDate) {
         try {
-            setImgUrls(await PicturesApi.getPictures(
-                roverName,
-                cameraName,
-                solDate)
+            setImgUrls(
+                await PicturesApi.getPictures(roverName, cameraName, solDate)
             );
         } catch (e) {
             console.error(e);
